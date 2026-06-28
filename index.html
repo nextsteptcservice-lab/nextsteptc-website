@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Next Step TC Service | Certified Transaction Coordination, CA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --ink:#262B1B;
+    --navy:#FFFFFF;
+    --navy-deep:#F1ECDD;
+    --paper:#262B1B;
+    --brass:#5C6E3C;
+    --brass-deep:#3E4D27;
+    --brass-soft:#3E4D27;
+    --rust:#A0512E;
+    --slate:#736B53;
+    --line:rgba(38,43,27,0.16);
+    --good:#4F7A4A;
+    --bad:#A0512E;
+    --on-accent:#F7F4EA;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:
+      radial-gradient(circle at 1px 1px, rgba(38,43,27,0.045) 1px, transparent 0) 0 0/22px 22px,
+      var(--navy-deep);
+    color:var(--paper);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+  }
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;letter-spacing:-0.015em;}
+  a{color:inherit;}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 28px;}
+  .mono{font-family:'IBM Plex Mono',monospace;letter-spacing:0.08em;text-transform:uppercase;font-size:0.7rem;color:var(--brass-deep);font-weight:500;}
+
+  /* NAV — manila folder tabs */
+  nav{position:sticky;top:0;z-index:50;background:var(--navy-deep);padding-top:14px;}
+  nav .wrap{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;}
+  .brand{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:700;padding-bottom:14px;white-space:nowrap;}
+  .brand span{color:var(--brass-deep);}
+  .navlinks{display:flex;gap:4px;flex-wrap:wrap;}
+  .navlinks a{
+    display:inline-block;background:#E7E0C9;color:var(--slate);
+    padding:10px 20px 11px;font-size:0.85rem;font-weight:600;
+    border-radius:8px 8px 0 0;border:1px solid var(--line);border-bottom:none;
+    position:relative;top:1px;transition:background .15s, color .15s;
+  }
+  .navlinks a:hover{background:#F1ECDD;color:var(--ink);}
+  .navlinks a.active{background:var(--navy);color:var(--ink);font-weight:700;box-shadow:0 -2px 8px rgba(38,43,27,0.06);}
+  nav::after{content:"";display:block;height:3px;background:var(--brass-deep);}
+  .nav-cta{display:none;}
+  @media (max-width:760px){.navlinks{display:none;}}
+
+  /* HERO */
+  .hero{padding:84px 0 90px;position:relative;overflow:hidden;background:var(--navy);border-bottom:1px solid var(--line);}
+  .hero::before{
+    content:"";position:absolute;top:-260px;right:-220px;width:600px;height:600px;
+    background:radial-gradient(circle, rgba(92,110,60,0.14), transparent 68%);
+    pointer-events:none;
+  }
+  .hero-grid{display:grid;grid-template-columns:1.2fr 0.8fr;gap:64px;align-items:center;position:relative;z-index:1;}
+  @media (max-width:860px){.hero-grid{grid-template-columns:1fr;}}
+  .eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:24px;}
+  .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--rust);}
+  .hero h1{font-size:clamp(2.3rem,4.6vw,3.7rem);line-height:1.05;margin-bottom:24px;}
+  .hero h1 em{font-style:italic;color:var(--brass-deep);}
+  .hero p.lead{font-size:1.12rem;color:#534B36;max-width:520px;margin-bottom:34px;}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--brass-deep);color:var(--on-accent);padding:15px 28px;border-radius:4px;
+    font-weight:700;font-size:0.95rem;display:inline-flex;align-items:center;gap:8px;
+    box-shadow:0 4px 0 rgba(38,43,27,0.15);
+    transition:transform .15s, box-shadow .15s;
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 0 rgba(38,43,27,0.15);}
+  .btn-ghost{
+    border:1.5px solid var(--ink);padding:15px 28px;border-radius:4px;font-size:0.95rem;font-weight:600;
+    transition:background .15s;
+  }
+  .btn-ghost:hover{background:rgba(38,43,27,0.05);}
+
+  /* SEAL — stamp signature element */
+  .seal-wrap{display:flex;justify-content:center;position:relative;}
+  .seal{
+    width:270px;height:270px;border-radius:50%;
+    border:3px solid var(--rust);
+    display:flex;align-items:center;justify-content:center;
+    position:relative;transform:rotate(-7deg);
+    background:#FFFDF7;
+    box-shadow:0 10px 30px rgba(38,43,27,0.12);
+  }
+  .seal::before{
+    content:"";position:absolute;inset:13px;border:1.5px dashed var(--rust);border-radius:50%;opacity:0.55;
+  }
+  .seal-inner{text-align:center;transform:rotate(0deg);}
+  .seal-inner .mono{display:block;margin-bottom:8px;color:var(--rust);}
+  .seal-inner .big{font-family:'Fraunces',serif;font-size:1.5rem;line-height:1.3;font-weight:700;color:var(--ink);}
+  .seal-inner .small{font-size:0.78rem;color:var(--slate);margin-top:8px;font-weight:600;}
+
+  /* SECTIONS — alternating tone for depth */
+  .section{padding:80px 0;border-bottom:1px solid var(--line);}
+  .section.tone-b{background:#FFFFFF;}
+  .section-head{max-width:600px;margin-bottom:48px;}
+  .section-head .mono{margin-bottom:14px;display:block;}
+  .section-head h2{font-size:clamp(1.7rem,2.8vw,2.3rem);}
+  .section-head p{color:#5C5642;margin-top:14px;font-size:1.02rem;}
+
+  .page-header{padding:64px 0 24px;background:var(--navy);border-bottom:1px solid var(--line);}
+  .page-header .wrap{padding-bottom:40px;}
+  .page-header h1{font-size:clamp(2rem,3.8vw,2.8rem);margin-bottom:12px;}
+  .page-header p{color:#5C5642;font-size:1.05rem;max-width:580px;}
+
+  /* DO / DON'T */
+  .dd-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;}
+  @media (max-width:760px){.dd-grid{grid-template-columns:1fr;}}
+  .dd-card{background:#FFFFFF;border:1px solid var(--line);border-radius:10px;padding:32px;box-shadow:0 2px 12px rgba(38,43,27,0.05);}
+  .dd-card.do{border-top:4px solid var(--good);}
+  .dd-card.dont{border-top:4px solid var(--bad);}
+  .dd-card h3{font-size:1.1rem;margin-bottom:20px;display:flex;align-items:center;gap:8px;}
+  .dd-card ul{list-style:none;}
+  .dd-card li{padding:10px 0;border-bottom:1px solid var(--line);font-size:0.96rem;color:#3D3826;}
+  .dd-card li:last-child{border-bottom:none;}
+  .dd-card.do li::before{content:"✓ ";color:var(--good);font-weight:700;}
+  .dd-card.dont li::before{content:"✕ ";color:var(--bad);font-weight:700;}
+
+  /* PLATFORMS */
+  .platform-row{display:flex;gap:14px;flex-wrap:wrap;}
+  .platform-chip{
+    border:1.5px solid var(--ink);padding:11px 20px;border-radius:30px;font-size:0.88rem;font-weight:600;
+    color:var(--ink);background:#FFFFFF;
+  }
+
+  /* TESTIMONIALS */
+  .test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  @media (max-width:860px){.test-grid{grid-template-columns:1fr;}}
+  .test-card{
+    background:#FFFFFF;border:1px solid var(--line);border-radius:10px;padding:28px;
+    display:flex;flex-direction:column;justify-content:space-between;
+    box-shadow:0 2px 12px rgba(38,43,27,0.05);
+    border-top:4px solid var(--brass-deep);
+  }
+  .stars{color:var(--rust);font-size:0.95rem;margin-bottom:16px;letter-spacing:2px;}
+  .test-card p.quote{font-size:0.97rem;color:#3D3928;margin-bottom:20px;font-style:italic;}
+  .test-who{display:flex;align-items:center;gap:12px;}
+  .test-avatar{
+    width:40px;height:40px;border-radius:50%;background:var(--brass-deep);
+    display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;
+    font-weight:700;color:var(--on-accent);font-size:0.95rem;
+  }
+  .test-who .name{font-size:0.9rem;font-weight:700;}
+  .test-who .role{font-size:0.78rem;color:var(--slate);}
+
+  /* PROCESS TIMELINE */
+  .timeline{display:flex;gap:0;position:relative;margin-top:14px;}
+  .tstep{flex:1;text-align:left;position:relative;padding-right:20px;}
+  .tstep .num{
+    font-family:'IBM Plex Mono',monospace;color:var(--on-accent);background:var(--brass-deep);
+    width:28px;height:28px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;
+    font-size:0.78rem;margin-bottom:14px;font-weight:700;
+  }
+  .tstep h4{font-size:1.05rem;margin-bottom:8px;}
+  .tstep p{font-size:0.87rem;color:var(--slate);}
+  .tline{height:2px;background:var(--line);position:absolute;top:14px;left:0;right:0;z-index:0;}
+  @media (max-width:760px){.timeline{flex-direction:column;gap:28px;}.tline{display:none;}}
+
+  /* PRICING */
+  .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  @media (max-width:860px){.price-grid{grid-template-columns:1fr;}}
+  .price-card{background:#FFFFFF;border:1px solid var(--line);border-radius:10px;padding:30px;display:flex;flex-direction:column;box-shadow:0 2px 12px rgba(38,43,27,0.05);}
+  .price-card.featured{border:2px solid var(--brass-deep);box-shadow:0 6px 20px rgba(38,43,27,0.1);position:relative;}
+  .price-card h3{font-size:1.08rem;margin-bottom:8px;}
+  .price-card .amt{font-family:'Fraunces',serif;font-size:2.2rem;color:var(--brass-deep);margin:12px 0;font-weight:700;}
+  .price-card .amt span{font-size:0.85rem;color:var(--slate);font-family:'Inter';font-weight:400;}
+  .price-card ul{list-style:none;margin:16px 0;flex-grow:1;}
+  .price-card li{font-size:0.89rem;color:#4A4636;padding:7px 0;}
+  .price-card li::before{content:"— ";color:var(--brass-deep);}
+
+  /* FORM */
+  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;}
+  @media (max-width:860px){.form-grid{grid-template-columns:1fr;}}
+  .field{margin-bottom:18px;}
+  .field label{display:block;font-size:0.83rem;color:var(--slate);margin-bottom:7px;font-weight:600;}
+  .field input,.field select,.field textarea{
+    width:100%;background:#FFFFFF;border:1.5px solid var(--line);color:var(--paper);
+    padding:13px 14px;border-radius:6px;font-family:'Inter';font-size:0.93rem;
+  }
+  .field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--brass-deep);}
+  .field textarea{resize:vertical;min-height:90px;}
+  .submit-btn{
+    background:var(--brass-deep);color:var(--on-accent);padding:15px 28px;border:none;border-radius:6px;
+    font-weight:700;font-size:0.95rem;cursor:pointer;width:100%;
+    box-shadow:0 4px 0 rgba(38,43,27,0.15);transition:transform .15s;
+  }
+  .submit-btn:hover{transform:translateY(-2px);}
+  .form-note{font-size:0.8rem;color:var(--slate);margin-top:10px;}
+  .contact-info{display:flex;flex-direction:column;gap:20px;}
+  .ci-row{display:flex;gap:14px;align-items:flex-start;border-left:3px solid var(--brass-deep);padding-left:14px;}
+  .ci-row .ci-label{font-size:0.78rem;color:var(--slate);text-transform:uppercase;letter-spacing:0.06em;font-weight:600;}
+  .ci-row .ci-val{font-size:1.08rem;font-weight:700;}
+  #form-status{font-size:0.88rem;margin-top:12px;color:var(--good);font-weight:600;display:none;}
+
+  footer{padding:40px 0;text-align:center;color:var(--slate);font-size:0.82rem;background:var(--navy);}
+
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">Next Step <span>TC</span></div>
+    <div class="navlinks">
+      <a href="index.html" class="active">Home</a>
+      <a href="services.html">Services</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <a href="contact.html" class="nav-cta">Work With Us</a>
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow"><span class="dot"></span><span class="mono">Certified Transaction Coordinator</span></div>
+      <h1>Spend your time on the <em>front end</em> — listing and buying. We handle the <em>back end.</em></h1>
+      <p class="lead">Work with confidence. From contract to close, every deadline and document is handled efficiently — so you can focus on growing your business, not chasing paperwork.</p>
+      <div class="hero-ctas">
+        <a href="contact.html" class="btn-primary">Work With Us →</a>
+        <a href="tel:+15103642991" class="btn-ghost">Call (510) 364-2991</a>
+      </div>
+    </div>
+    <div class="seal-wrap">
+      <div class="seal">
+        <div class="seal-inner">
+          <span class="mono">Why Work With Us</span>
+          <div class="big" style="font-size:1.4rem; line-height:1.3;">Reliable.<br>Responsive.<br>Covered.</div>
+          <div class="small">Certified TC · E&O Insured</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section tone-b">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="mono">Why Work With Us</span>
+      <h2>You build. We coordinate.</h2>
+    </div>
+    <div class="dd-grid" style="grid-template-columns:repeat(3,1fr);">
+      <div class="dd-card do" style="border-top-color:var(--brass);">
+        <h3>Front End, Your Way</h3>
+        <ul style="border:none;">
+          <li style="border:none;">Spend your time listing and buying — the part that grows your business</li>
+        </ul>
+      </div>
+      <div class="dd-card do" style="border-top-color:var(--brass);">
+        <h3>Work With Confidence</h3>
+        <ul style="border:none;">
+          <li style="border:none;">Certified TC, E&O insured — every file backed and protected</li>
+        </ul>
+      </div>
+      <div class="dd-card do" style="border-top-color:var(--brass);">
+        <h3>Efficient</h3>
+        <ul style="border:none;">
+          <li style="border:none;">Deadlines tracked, documents submitted, no back-and-forth needed from you</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="border-bottom:none;">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="mono">Process</span>
+      <h2>From signed contract to keys in hand</h2>
+    </div>
+    <div class="timeline">
+      <div class="tline"></div>
+      <div class="tstep"><span class="num">01</span><h4>Intake</h4><p>Contract reviewed, file opened, timeline built within 24 hours.</p></div>
+      <div class="tstep"><span class="num">02</span><h4>Coordination</h4><p>Lender, title, and inspection deadlines tracked and chased.</p></div>
+      <div class="tstep"><span class="num">03</span><h4>Compliance</h4><p>Disclosures and documents submitted on time, every time.</p></div>
+      <div class="tstep"><span class="num">04</span><h4>Closing</h4><p>Final walkthrough confirmed, file closed, you collect your commission.</p></div>
+    </div>
+  </div>
+</section>
+
+
+<footer>
+  © 2026 Next Step TC Service. Certified TC. Not a brokerage, lender, or insurance provider. We don't provide legal, tax, or contract advice.
+</footer>
+
+</body>
+</html>
